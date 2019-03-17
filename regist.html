@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        span{color: red; }
+        .grad {
+            width:100%;
+            background: -webkit-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+            /* Opera 11.1 - 12.0 */
+            background: -o-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+            /* Firefox 3.6 - 15 */
+            background: -moz-linear-gradient(left,red,orange,yellow,green,blue,indigo,violet);
+            /* 标准的语法 */
+            background: linear-gradient(to right,blue,red);  
+        }
+        #dis{
+            width: 100%;
+            height:200px;
+            text-align: center;
+            text-emphasis: size after 100px;
+            color:blue;
+            font-size: 35px;
+            font-weight: 600;
+        }
+    </style>
+    <script>
+        function test(){
+            var result=document.forms["step"]["user"].value;
+            //alert(5+6);
+            if(result==""||result==null){
+                alert("用户名不能为空");
+            }
+            return false;
+        }
+        function confirmUser(){
+            if(document.forms["step"]["user"].value!=""){
+                document.getElementById("user").style["color"]="blue";
+            }
+        }
+        function confirmPassword(){
+            if(document.forms["step"]["password"].value!=""){
+                document.getElementById("pass").style["color"]="blue";
+            }
+        }
+        function confirmPasswordAgain(){
+            if(document.forms["step"]["passwordAgain"].value!=""){
+                document.getElementById("pass1").style["color"]="blue";
+            }
+        }
+        function confirmMail(){
+            if(document.forms["step"]["E-mail"].value!=""){
+                document.getElementById("mail").style["color"]="blue";
+            }
+        }
+        function comfirm1(){
+            if(document.forms["step"]["user"].value==""){
+                alert("用户名不能为空");
+                return;
+            }
+            if(document.forms["step"]["password"].value==""){
+                alert("密码不能为空");
+                return;
+            }
+            if(document.forms["step"]["passwordAgain"].value==""){
+                alert("请再次输入密码");
+                return;
+            }else if(document.forms["step"]["password"].value!=document.forms["step"]["passwordAgain"].value){
+                alert("两次输入的密码不一致");
+                document.forms["step"]["password"].value="";
+                document.forms["step"]["passwordAgain"].value="";
+            }
+            if(document.forms["step"]["E-mail"].value.indexOf("@")==-1){
+                alert("邮箱的格式不正确");
+                return;
+            }
+            if(window.confirm("是否确定提交数据？")){
+                alert("成功提交数据");
+                document.getElementById("dis").value="用户名:"+document.forms["step"]["user"].value+"\n"+
+                "密 码:"+document.forms["step"]["password"].value+"\n"+
+                "邮 箱:"+document.forms["step"]["E-mail"].value+"\n";
+            }else{
+                document.forms["step"]["user"].value="";
+                document.forms["step"]["password"].value="";
+                document.forms["step"]["passwordAgain"].value="";
+                document.forms["step"]["E-mail"].value="";
+            }
+        }
+    </script>
+    <title>用户注册</title>
+</head>
+<body>
+    <div class="grad">
+    <h1 style="width: 100%;max-width: width 0px;margin-top: 0px;margin-bottom: 0">新用户注册</h1>
+    <hr style="height: 2px;margin-top: 0px;margin-bottom: 0"  >
+    <form name="step" action="demo_form.php"  onsubmit="return test()" method="post">
+       用户名:<span id="user">(*)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="user" onblur="confirmUser()"><br>
+       密&nbsp;&nbsp; &nbsp;码:<span id="pass">(*)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" onblur="confirmPassword()"><br>
+       再输入一次密码:<span id="pass1">(*)</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="password" name="passwordAgain" onblur="confirmPasswordAgain()"><br>
+       性别：<input type="radio" name="sexual" value="man"> 男
+       <input type="radio" name="sexual" value="woman"> 女<br>
+       出生年月：<select name="year" id="year">
+           <option value="1997">1997</option>
+           <option value="1998">1998</option>
+           <option value="1999">1999</option>
+           <option value="2000">2000</option>
+           <option value="2001">2001</option>
+           <option value="2002">2002</option>
+           <option value="2003">2003</option>
+           <option value="2004">2004</option>
+       </select>年
+       <select name="month" id="month">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>月
+        <select name="date" id="date">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select>日<br>
+        电子邮件：<span id="mail">(*)</span> <input type="text" name="E-mail" onblur="confirmMail()"><br>
+        家庭住址：<input type="text" name="address"><br>
+        <hr style="background-color:saddlebrown;height: 2px">
+        <input type="submit" value="提交" onclick="comfirm1()"  style="font-size: 30px" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" value="重置" style="font-size: 30px;" ><br>
+    </form>
+    <textarea name="dis" id="dis" cols="30" rows="10" >
+
+    </textarea>
+</div>
+</body>
+</html>
