@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+           span{color:red;} 
+    </style>
+    <title>用户注册</title>
+    <script>
+        function mysFunction() {
+                if(document.getElementById("demo").value==""){
+                        window.alert('信息用户名不能为空。');
+                        return ;
+                }if(document.getElementById("password").value==""){
+                        window.alert("密码不能为空。");
+                        return;
+                }if(document.getElementById("password2").value==""){
+                        window.alert("请在输入一次密码。")
+                        return;
+                }if(document.getElementById("password").value!=""){
+                        var x = document.getElementById("password2").value;
+                        var y = document.getElementById("password").value;
+                        if(!(x==y)){
+                                window.alert("您输入的两次密码不对。");
+                                return ;
+                        }
+                }if(document.getElementById("mail").value.indexOf("@")==-1){
+                                alert("邮箱的格式不正确");
+                                return ;
+                        }
+                        if(window.confirm("是否确定提交数据？")){
+                                alert("成功提交数据");
+                                document.getElementById("dis").value="用户名:"+document.getElementById("demo").value+"\n"+"电子邮件:"+document.getElementById("mail").value+"\n"+
+                "家庭住址:"+document.getElementById("home").value;
+                
+                        }
+                 }
+
+        </script>
+        <style>
+             #test1{
+                background-color:rgb(167, 95, 155)
+             }  
+             .test{
+                background-color: rgb(45, 165, 212)
+             } 
+        </style>
+</head>
+<body>
+        <h2 class="test">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户注册</h2>
+        <hr style="background-color:rgb(81, 182, 63);height:6px">
+        <form action="http://www.baidu.com"  id="test1" onclick="return false">
+                用户名:<span>(*)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="demo" type="text"><br>
+                密码 <span>(*)</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" id="password"><br>
+                再输入一次密码<span>(*)</span>  <input type="password" id="password2"><br>
+                性别  <input type="radio" name="sexual" value="man">男
+                <input type="radio" name="sexual" value="woman">女<br>出生年月
+                <select name="year" id="year">
+                        <option value="1996">1996</option>
+                        <option value="1997">1997</option>
+                        <option value="1998">1998</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2002">2002</option>
+                </select>年
+                <select name="month" id="month">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                </select>月
+        <select name="year" id="year">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+        </select>日<br>
+        电子邮件：<span>(*)</span>&nbsp;
+                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="mail"><br>
+        家庭住址：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="home"><br>
+        &nbsp;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="提交" onclick="mysFunction()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" value="重置">  
+        </form>
+        <textarea name="dis" id="dis" cols="30" rows="10" style="text-align: center;font-size: 50px ;color: #000000         ">
+
+                </textarea>
+</body>
+</html>
